@@ -184,7 +184,7 @@ load_file = function(filename) {
         data$t = data$t / header$sample_rate
 
         # If the software notch filter was selected during the recording, apply the same notch filter to amplifier data here
-        if (header$frequency_parameters$notch_filter_frequency > 0) {
+        if (header$frequency_parameters$notch_filter_frequency > 0 && header$version$major < 3) {
             cat("Applying notch filter...\n")
 
             print_increment = 10
